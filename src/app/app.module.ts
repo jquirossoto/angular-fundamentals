@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { EventsListComponent, EventThumbnailComponent, EventDetailsComponent, CreateEventComponent } from './events/index';
+import { EventsListComponent, EventThumbnailComponent, EventDetailsComponent, CreateEventComponent, CreateSessionComponent, SessionListComponent } from './events/index';
 import { EventsAppComponent } from './events-app.component';
 import { NavbarComponent } from './nav/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './errors/not-found.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ColapsableWellComponent } from './common/colapsable-well.component';
+import { DurationPipe } from './common/duration.pipe';
 
 @NgModule({
   declarations: [
@@ -16,10 +19,16 @@ import { NotFoundComponent } from './errors/not-found.component';
     EventDetailsComponent,
     CreateEventComponent,
     NotFoundComponent,
+    CreateSessionComponent,
+    SessionListComponent,
+    ColapsableWellComponent,
+    DurationPipe,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: 'canDeactivateCreateEvent',
