@@ -5,6 +5,7 @@ export interface ISession {
   duration: number,
   level: string,
   abstract: string,
-  voters: string[]
+  voters: string[],
+  eventId?: number
 }
 
