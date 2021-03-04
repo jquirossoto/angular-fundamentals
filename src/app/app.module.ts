@@ -1,14 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
-import { EventsListComponent, EventThumbnailComponent, EventDetailsComponent, CreateEventComponent, CreateSessionComponent, SessionListComponent } from './events/index';
-import { IToastr, TOASTR_TOKEN } from './common/toastr.service';
-import { JQ_TOKEN } from './common/jquery.service';
+import { EventsListComponent, EventThumbnailComponent, EventDetailsComponent, CreateEventComponent, CreateSessionComponent, SessionListComponent, UpvoteComponent, LocationValidatorDirective } from './events/index';
 import { EventsAppComponent } from './events-app.component';
 import { NavbarComponent } from './nav/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './errors/not-found.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IToastr, TOASTR_TOKEN } from './common/toastr.service';
+import { JQ_TOKEN } from './common/jquery.service';
 import { ColapsableWellComponent } from './common/colapsable-well.component';
 import { DurationPipe } from './common/duration.pipe';
 import { SimpleModalComponent } from './common/simple-modal.component';
@@ -32,12 +33,15 @@ let jQuery = (window as any)["$"];
     DurationPipe,
     SimpleModalComponent,
     ModalTriggerDirective,
+    UpvoteComponent,
+    LocationValidatorDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [{
     provide: 'canDeactivateCreateEvent',
