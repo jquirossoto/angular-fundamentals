@@ -20,7 +20,7 @@ export class SessionListComponent implements OnInit, OnChanges {
 
   ngOnInit(): void { }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     if(this.sessions) {
       this.filterSessions(this.filterBy!);
       this.sortBy === 'name' ? this.visibleSessions?.sort(this.sortByNameAsc) : this.visibleSessions?.sort(this.sortByVotesDesc);
@@ -54,7 +54,7 @@ export class SessionListComponent implements OnInit, OnChanges {
   }
 
    toggleVote(session: ISession) {
-    if(this.userHasVoted(session)) {
+    if (this.userHasVoted(session)) {
       this.voterService.deleteVoter(this.eventId! ,session, this.authService.currentUser?.userName!);
     } else {
       this.voterService.addVoter(this.eventId!, session, this.authService.currentUser?.userName!);

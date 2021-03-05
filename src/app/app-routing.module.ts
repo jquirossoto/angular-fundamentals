@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { PreloadAllModules, PreloadingStrategy, RouterModule } from '@angular/router';
 
 import  { CreateEventComponent, EventDetailsComponent, EventsListComponent, EventsListResolverService, CreateSessionComponent, EventResolverService} from './events/index';
 import { NotFoundComponent } from './errors/not-found.component';
@@ -15,7 +15,7 @@ import { NotFoundComponent } from './errors/not-found.component';
       { path: '404', component: NotFoundComponent},
       { path: '', redirectTo: '/events', pathMatch: 'full' },
       { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) }
-    ])
+    ], {preloadingStrategy: PreloadAllModules})
   ],
   exports: [
     RouterModule

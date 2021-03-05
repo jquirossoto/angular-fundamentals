@@ -41,7 +41,7 @@ export class AuthService {
   updateCurrentUser(firstName: string, lastName: string): Observable<any> {
     this.currentUser!.firstName = firstName;
     this.currentUser!.lastName = lastName;
-    return this.http.put(`/api/users/${this.currentUser?.id}`, this.currentUser, {headers: new HttpHeaders({"Content-Type": "application/json"})});
+    return this.http.put(`/api/users/${this.currentUser?.id}`, this.currentUser, {headers: new HttpHeaders( {"Content-Type": "application/json"} ) });
   }
 
   logout(): Observable<any>{
